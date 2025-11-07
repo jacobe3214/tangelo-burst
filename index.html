@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Citrus Coast — Tangelo Burst</title>
-  <meta name="description" content="Tangelo Burst by Citrus Coast Co. 100% natural, no added sugar. Made in New Zealand.">
+  <meta name="description" content="Tangelo Burst — 100% natural NZ tangelo drink. No added sugar.">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -41,8 +41,8 @@
         </div>
       </div>
       <div class="hero__visual reveal">
-        <div class="blob b1"></div>
-        <div class="blob b2"></div>
+        <div class="blob b1"></></div>
+        <div class="blob b2"></></div>
         <img class="bottle" src="assets/bottle-300.png" alt="Tangelo Burst 300ml bottle" />
       </div>
     </div>
@@ -71,7 +71,7 @@
         </ul>
       </div>
       <div class="about__card reveal">
-        <div class="badge">
+        <div class="badge" aria-label="Natural badge">
           <div class="badge__top">100% NATURAL</div>
           <div class="badge__mid">NO ADDED SUGAR</div>
           <div class="badge__bot">MADE IN NZ</div>
@@ -146,7 +146,6 @@
       <h2 class="reveal">Choose Your Tangelo Burst</h2>
 
       <div class="shop grid">
-
         <!-- 300ml -->
         <article class="product reveal">
           <img src="assets/bottle-300.png" alt="Tangelo Burst 300ml Glass Bottle">
@@ -190,7 +189,6 @@
             <button class="btn add" data-sku="2l" data-name="Tangelo Burst 2L Family Size" data-price="7.9">Add</button>
           </div>
         </article>
-
       </div>
 
       <p class="hint reveal">Tip: click 🛒 at the top to view your order.</p>
@@ -227,4 +225,18 @@
   <aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
     <div class="drawer__panel">
       <div class="drawer__head">
-        <h3 id="cartTitle">Your Order</h
+        <h3 id="cartTitle">Your Order</h3>
+        <button class="icon" id="closeDrawer" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cartItems" class="drawer__body"></div>
+      <div class="drawer__foot">
+        <div class="total">Total: $<span id="cartTotal">0.00</span></div>
+        <button class="btn" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+    <div class="drawer__scrim" id="scrim" aria-hidden="true"></div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
