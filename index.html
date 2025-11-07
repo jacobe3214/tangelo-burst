@@ -4,42 +4,227 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Citrus Coast — Tangelo Burst</title>
+  <meta name="description" content="Tangelo Burst by Citrus Coast Co. 100% natural, no added sugar. Made in New Zealand.">
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="nav">
-    <div class="brand">
-      <img src="assets/logo.png" alt="Citrus Coast logo" />
-      <span>Citrus Coast Co.</span>
+  <!-- NAV -->
+  <nav class="nav" aria-label="Main">
+    <div class="container nav__wrap">
+      <a class="brand" href="#top">
+        <img src="assets/logo.png" alt="Citrus Coast logo" />
+        <span>Citrus Coast Co.</span>
+      </a>
+      <div class="nav__links">
+        <a href="#about">About</a>
+        <a href="#ingredients">Ingredients</a>
+        <a href="#nz">Made in NZ</a>
+        <a href="#shop" class="strong">Shop</a>
+        <button class="cart" id="cartBtn" aria-label="Open cart">
+          🛒 <span id="cartCount">0</span>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Tangelo <span>Burst</span></h1>
-      <p>Fresh-squeezed NZ tangelos — 100% natural, no added sugar.</p>
-      <a href="#buy" class="btn">Buy Now</a>
+  <!-- HERO -->
+  <header id="top" class="hero">
+    <div class="hero__bg"></div>
+    <div class="container hero__grid">
+      <div class="hero__copy reveal">
+        <h1 class="title">Tangelo <span>Burst</span></h1>
+        <p class="lead">Bright, juicy, and 100% natural — a true taste of Aotearoa’s summer. No added sugar. Ever.</p>
+        <div class="cta">
+          <a class="btn" href="#shop">Buy Now</a>
+          <a class="btn ghost" href="#about">Learn More</a>
+        </div>
+      </div>
+      <div class="hero__visual reveal">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <img class="bottle" src="assets/bottle-300.png" alt="Tangelo Burst 300ml bottle" />
+      </div>
     </div>
-    <img src="assets/bottle.png" alt="Tangelo Burst bottle" class="bottle" />
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        🍊 Tangelo Burst • 🌿 100% Natural • 🇳🇿 Made in NZ • 0g Added Sugar •
+        🍊 Tangelo Burst • 🌿 100% Natural • 🇳🇿 Made in NZ • 0g Added Sugar •
+      </div>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>About the Drink</h2>
-    <p>Tangelo Burst is made from locally grown NZ tangelos for a refreshing, natural citrus hit.</p>
-    <ul>
-      <li>100% natural — no added sugar</li>
-      <li>Locally sourced fruit</li>
-      <li>Made in New Zealand</li>
-    </ul>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container about__grid">
+      <div class="about__copy reveal">
+        <h2>About the Drink</h2>
+        <p>
+          Tangelo Burst is crafted from NZ-grown tangelos for a vivid, naturally sweet citrus profile —
+          smooth, lightly pulped, and bottled in recyclable glass. Designed for people who want real fruit
+          flavour without the sugar hit.
+        </p>
+        <ul class="ticks">
+          <li>100% natural — no added sugar</li>
+          <li>Small-batch pressed for peak flavour</li>
+          <li>Recyclable packaging</li>
+        </ul>
+      </div>
+      <div class="about__card reveal">
+        <div class="badge">
+          <div class="badge__top">100% NATURAL</div>
+          <div class="badge__mid">NO ADDED SUGAR</div>
+          <div class="badge__bot">MADE IN NZ</div>
+        </div>
+        <p class="note">Every bottle supports local growers in the Bay of Plenty.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="buy">
-    <h2>Buy Tangelo Burst</h2>
-    <p>300 ml — $3.50</p>
-    <button id="buyBtn">Add to Cart</button>
+  <!-- INGREDIENTS -->
+  <section id="ingredients" class="section alt">
+    <div class="container">
+      <h2 class="reveal">Simple Ingredients</h2>
+      <div class="cards">
+        <article class="card reveal">
+          <h3>Tangelo Juice</h3>
+          <p>NZ-grown tangelos deliver bold, bright citrus with a gentle sweetness.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Orange Juice</h3>
+          <p>A touch of orange rounds the flavour for a smooth, balanced finish.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Vitamin C</h3>
+          <p>Natural antioxidant (ascorbic acid) that helps lock in freshness.</p>
+        </article>
+      </div>
+    </div>
   </section>
 
-  <footer>© <span id="yr"></span> Citrus Coast Co. — Made in NZ</footer>
-  <script src="script.js"></script>
-</body>
-</html>
+  <!-- MADE IN NZ -->
+  <section id="nz" class="section">
+    <div class="container nz__grid">
+      <div class="reveal">
+        <h2>Made in New Zealand</h2>
+        <p>
+          Born in the Bay of Plenty, Tangelo Burst captures the feel of sunshine on the coast:
+          crisp sea air, lush orchards, and vibrant energy. We partner with local growers and keep
+          supply chains short for freshness and sustainability.
+        </p>
+        <ul class="ticks">
+          <li>Locally sourced citrus</li>
+          <li>Short, transparent ingredient list</li>
+          <li>Responsible packaging</li>
+        </ul>
+      </div>
+      <div class="map reveal" aria-hidden="true">🇳🇿</div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="section alt">
+    <div class="container">
+      <h2 class="reveal">What People Say</h2>
+      <div class="reviews">
+        <blockquote class="review reveal">
+          “Bright and juicy — tastes like summer.” <cite>— Maia, Tauranga</cite>
+        </blockquote>
+        <blockquote class="review reveal">
+          “Love that it’s sugar-free but still full of flavour.” <cite>— Jayden, Papamoa</cite>
+        </blockquote>
+        <blockquote class="review reveal">
+          “New go-to drink after training.” <cite>— Aria, Mount Maunganui</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop" class="section">
+    <div class="container">
+      <h2 class="reveal">Choose Your Tangelo Burst</h2>
+
+      <div class="shop grid">
+
+        <!-- 300ml -->
+        <article class="product reveal">
+          <img src="assets/bottle-300.png" alt="Tangelo Burst 300ml Glass Bottle">
+          <h3>Tangelo Burst 300ml Glass Bottle</h3>
+          <p class="desc">Single-serve freshness in recyclable glass.</p>
+          <div class="meta">
+            <span class="price" data-price="3.5">$3.50</span>
+            <button class="btn add" data-sku="300ml" data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">Add</button>
+          </div>
+        </article>
+
+        <!-- 600ml -->
+        <article class="product reveal">
+          <img src="assets/bottle-600.png" alt="Tangelo Burst 600ml Glass Bottle">
+          <h3>Tangelo Burst 600ml Glass Bottle</h3>
+          <p class="desc">More to sip — same bold, bright citrus.</p>
+          <div class="meta">
+            <span class="price" data-price="5.5">$5.50</span>
+            <button class="btn add" data-sku="600ml" data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">Add</button>
+          </div>
+        </article>
+
+        <!-- 6-pack -->
+        <article class="product reveal">
+          <img src="assets/pack-6.png" alt="Tangelo Burst 300ml 6-Pack">
+          <h3>Tangelo Burst 300ml 6-Pack</h3>
+          <p class="desc">Shareable goodness for picnics and game days.</p>
+          <div class="meta">
+            <span class="price" data-price="19.5">$19.50</span>
+            <button class="btn add" data-sku="6pack" data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">Add</button>
+          </div>
+        </article>
+
+        <!-- 2L Family -->
+        <article class="product reveal">
+          <img src="assets/bottle-2l.png" alt="Tangelo Burst 2L Family Size">
+          <h3>Tangelo Burst 2L Family Size</h3>
+          <p class="desc">Fridge-friendly for breakfasts, BBQs, and weekends.</p>
+          <div class="meta">
+            <span class="price" data-price="7.9">$7.90</span>
+            <button class="btn add" data-sku="2l" data-name="Tangelo Burst 2L Family Size" data-price="7.9">Add</button>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="hint reveal">Tip: click 🛒 at the top to view your order.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section alt">
+    <div class="container">
+      <h2 class="reveal">FAQs</h2>
+      <details class="reveal">
+        <summary>Is there any added sugar?</summary>
+        <p>No — Tangelo Burst is naturally sweet from fruit only.</p>
+      </details>
+      <details class="reveal">
+        <summary>Is it sparkling?</summary>
+        <p>This is our still version. A sparkling “Tangelo Fizz” is in development.</p>
+      </details>
+      <details class="reveal">
+        <summary>How should I store it?</summary>
+        <p>Keep chilled. Best consumed within 3 days of opening.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container foot">
+      <p>© <span id="yr"></span> Citrus Coast Co. • Made in New Zealand 🇳🇿</p>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
+    <div class="drawer__panel">
+      <div class="drawer__head">
+        <h3 id="cartTitle">Your Order</h
