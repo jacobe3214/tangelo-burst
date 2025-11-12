@@ -4,16 +4,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Citrus Coast — Tangelo Burst</title>
-  <meta name="description" content="Tangelo Burst — 100% natural NZ tangelo drink. No added sugar. Made in NZ.">
+  <meta name="description" content="Tangelo Burst — 100% natural NZ tangelo juice. No added sugar. Made in NZ.">
+
+  <meta name="theme-color" content="#ff7a00">
+  <link rel="icon" href="assets/logo.png">
+  <meta property="og:title" content="Tangelo Burst — Citrus Coast Co.">
+  <meta property="og:description" content="100% natural NZ tangelo juice. No added sugar.">
+  <meta property="og:image" content="assets/bottle-600.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap"></noscript>
+
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <!-- GSAP for ultra-smooth animations -->
+
+  <!-- GSAP (optional) -->
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
 <body>
-  <!-- Page preloader -->
-  <div id="preloader">
+  <!-- Skip link -->
+  <a class="skip-link" href="#shop">Skip to shop</a>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
     <div class="ring"></div>
     <span>Pouring freshness…</span>
   </div>
@@ -22,7 +38,7 @@
   <nav class="nav" aria-label="Main">
     <div class="container nav__wrap">
       <a class="brand" href="#top">
-        <img src="assets/logo.png" alt="Citrus Coast logo" />
+        <img loading="lazy" decoding="async" src="assets/logo.png" alt="Citrus Coast logo" />
         <span>Citrus Coast Co.</span>
       </a>
       <div class="nav__links">
@@ -35,10 +51,16 @@
     </div>
   </nav>
 
+  <!-- TRUST BAR -->
+  <div class="trustbar">
+    <span>🇳🇿 Made in NZ</span>
+    <span>🌿 100% Natural</span>
+    <span>🚫 No Added Sugar</span>
+    <span>♻️ Recyclable Packaging</span>
+  </div>
+
   <!-- HERO -->
   <header id="top" class="hero">
-    <!-- Optional video background (place at assets/hero.mp4) -->
-    <!-- <video class="hero__video" src="assets/hero.mp4" autoplay muted playsinline loop></video> -->
     <div class="hero__bg"></div>
     <canvas id="citrusParticles" aria-hidden="true"></canvas>
 
@@ -48,7 +70,7 @@
         <p class="lead">A bright, juicy hit of real NZ tangelo. 100% natural. No added sugar.</p>
         <div class="cta">
           <a class="btn" href="#shop">Buy Now</a>
-          <a class="btn ghost" href="#about">Explore</a>
+          <a class="btn ghost" href="#about">Learn more</a>
         </div>
         <div class="hero__badges">
           <div class="badge">
@@ -60,8 +82,8 @@
       </div>
 
       <div class="hero__visual">
-        <img class="bottle" src="assets/bottle-300.png" alt="Tangelo Burst bottle">
-        <img class="splash" src="assets/splash.png" alt="" aria-hidden="true">
+        <img class="bottle" loading="lazy" decoding="async" src="assets/bottle-300.png" alt="Tangelo Burst bottle">
+        <img class="splash" loading="lazy" decoding="async" src="assets/splash.png" alt="" aria-hidden="true">
       </div>
     </div>
 
@@ -78,18 +100,15 @@
     <div class="container about__grid">
       <div class="about__copy">
         <h2>Why Tangelo Burst?</h2>
-        <p>
-          Pressed from NZ-grown tangelos, blended for balance, and bottled for clarity.
-          Smooth, vibrant, and naturally sweet — with zero added sugar.
-        </p>
+        <p>Pressed from NZ-grown tangelos, blended for balance, and bottled for clarity. Smooth, vibrant, and naturally sweet — with zero added sugar.</p>
         <ul class="ticks">
           <li>Small-batch pressed in the Bay of Plenty</li>
           <li>Recyclable glass & responsible packaging</li>
-          <li>Short supply chain; maximum freshness</li>
+          <li>Short supply chain — maximum freshness</li>
         </ul>
       </div>
       <div class="about__card">
-        <img class="about__image" src="assets/orchard.jpg" alt="NZ orchard (illustrative)">
+        <img class="about__image" loading="lazy" decoding="async" src="assets/orchard.jpg" alt="NZ citrus orchard">
         <p class="note">Local growers, local jobs, local flavour.</p>
       </div>
     </div>
@@ -98,7 +117,7 @@
   <!-- INGREDIENTS -->
   <section id="ingredients" class="section alt">
     <div class="container">
-      <h2>Simple Ingredients</h2>
+      <h2>Nothing But Real Fruit</h2>
       <div class="cards">
         <article class="card">
           <h3>Tangelo Juice</h3>
@@ -116,37 +135,45 @@
     </div>
   </section>
 
-  <!-- STORY / LIFESTYLE -->
+  <!-- STORY -->
   <section id="story" class="section story">
     <div class="container story__wrap">
       <div class="story__copy">
-        <h2>Born on the Coast</h2>
-        <p>From orchard to ocean; Tangelo Burst captures the feeling of a Papamoa summer: sun-lit, crisp, and full of energy.</p>
+        <h2>Proudly Made in Aotearoa</h2>
+        <p>From orchard to ocean — a Papamoa summer in every sip: sun-lit, crisp, and full of energy.</p>
         <ul class="ticks">
           <li>Community-minded production</li>
           <li>Traceable ingredients</li>
-          <li>Crafted in Aotearoa New Zealand</li>
+          <li>Crafted in New Zealand</li>
         </ul>
       </div>
-      <div class="story__image"></div>
+      <div class="story__image" role="img" aria-label="Papamoa beach lifestyle image"></div>
     </div>
   </section>
 
-  <!-- SHOP / CAROUSEL + GRID -->
+  <!-- SHOP -->
   <section id="shop" class="section">
     <div class="container">
       <h2>Choose Your Tangelo Burst</h2>
 
-      <!-- Product carousel (switches main image/details) -->
-      <div class="carousel">
+      <!-- Main selector carousel (big image + buttons) -->
+      <div class="carousel" aria-label="Product selector">
         <div class="carousel__main">
-          <img id="carouselImg" src="assets/bottle-300.png" alt="Tangelo product">
+          <img id="carouselImg" loading="lazy" decoding="async" src="assets/bottle-300.png" alt="Tangelo product">
         </div>
-        <div class="carousel__thumbs">
-          <button class="thumb active" data-sku="300ml" data-img="assets/bottle-300.png" data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">300 ml</button>
-          <button class="thumb" data-sku="600ml" data-img="assets/bottle-600.png" data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">600 ml</button>
-          <button class="thumb" data-sku="6pack" data-img="assets/pack-6.png" data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">6-pack</button>
-          <button class="thumb" data-sku="2l" data-img="assets/bottle-2l.png" data-name="Tangelo Burst 2L Family Size" data-price="7.9">2 L</button>
+        <div class="carousel__thumbs" role="tablist" aria-label="Sizes">
+          <button class="thumb active" role="tab" aria-selected="true"
+                  data-sku="300ml" data-img="assets/bottle-300.png"
+                  data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">300 ml</button>
+          <button class="thumb" role="tab" aria-selected="false"
+                  data-sku="600ml" data-img="assets/bottle-600.png"
+                  data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">600 ml</button>
+          <button class="thumb" role="tab" aria-selected="false"
+                  data-sku="6pack" data-img="assets/pack-6.png"
+                  data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">6-pack</button>
+          <button class="thumb" role="tab" aria-selected="false"
+                  data-sku="2l" data-img="assets/bottle-2l.png"
+                  data-name="Tangelo Burst 2L Family Size" data-price="7.9">2 L</button>
         </div>
         <div class="carousel__cta">
           <div>
@@ -160,32 +187,55 @@
         </div>
       </div>
 
-      <!-- Backup grid (also animated on scroll) -->
-      <div class="shop grid">
-        <article class="product">
-          <img src="assets/bottle-300.png" alt="Tangelo Burst 300ml Glass Bottle">
-          <h3>300ml Glass Bottle</h3>
-          <p class="desc">Bright single-serve.</p>
-          <div class="meta"><span class="price">$3.50</span><button class="btn add" data-sku="300ml" data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">Add</button></div>
-        </article>
-        <article class="product">
-          <img src="assets/bottle-600.png" alt="Tangelo Burst 600ml Glass Bottle">
-          <h3>600ml Glass Bottle</h3>
-          <p class="desc">More to sip — same burst.</p>
-          <div class="meta"><span class="price">$5.50</span><button class="btn add" data-sku="600ml" data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">Add</button></div>
-        </article>
-        <article class="product">
-          <img src="assets/pack-6.png" alt="Tangelo Burst 300ml 6-Pack">
-          <h3>300ml 6-Pack</h3>
-          <p class="desc">Shareable goodness.</p>
-          <div class="meta"><span class="price">$19.50</span><button class="btn add" data-sku="6pack" data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">Add</button></div>
-        </article>
-        <article class="product">
-          <img src="assets/bottle-2l.png" alt="Tangelo Burst 2L Family Size">
-          <h3>2L Family Size</h3>
-          <p class="desc">BBQs, brunches, weekends.</p>
-          <div class="meta"><span class="price">$7.90</span><button class="btn add" data-sku="2l" data-name="Tangelo Burst 2L Family Size" data-price="7.9">Add</button></div>
-        </article>
+      <!-- Horizontal product rail -->
+      <div class="shop">
+        <div class="railControls">
+          <button class="railBtn" id="railLeft" aria-label="Scroll products left">‹</button>
+          <span class="railLabel">All Tangelo Burst sizes</span>
+          <button class="railBtn" id="railRight" aria-label="Scroll products right">›</button>
+        </div>
+
+        <div class="shopRail" id="productRail">
+          <article class="product" id="p300">
+            <img loading="lazy" decoding="async" src="assets/bottle-300.png" alt="Tangelo Burst 300ml Glass Bottle">
+            <h3>300ml Glass Bottle</h3>
+            <p class="desc">Bright single-serve.</p>
+            <div class="meta">
+              <span class="price">$3.50</span>
+              <button class="btn add" data-sku="300ml" data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">Add</button>
+            </div>
+          </article>
+
+          <article class="product" id="p600">
+            <img loading="lazy" decoding="async" src="assets/bottle-600.png" alt="Tangelo Burst 600ml Glass Bottle">
+            <h3>600ml Glass Bottle</h3>
+            <p class="desc">More to sip — same burst.</p>
+            <div class="meta">
+              <span class="price">$5.50</span>
+              <button class="btn add" data-sku="600ml" data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">Add</button>
+            </div>
+          </article>
+
+          <article class="product" id="p6">
+            <img loading="lazy" decoding="async" src="assets/pack-6.png" alt="Tangelo Burst 300ml 6-Pack">
+            <h3>300ml 6-Pack</h3>
+            <p class="desc">Shareable goodness.</p>
+            <div class="meta">
+              <span class="price">$19.50</span>
+              <button class="btn add" data-sku="6pack" data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">Add</button>
+            </div>
+          </article>
+
+          <article class="product" id="p2l">
+            <img loading="lazy" decoding="async" src="assets/bottle-2l.png" alt="Tangelo Burst 2L Family Size">
+            <h3>2L Family Size</h3>
+            <p class="desc">BBQs, brunches, weekends.</p>
+            <div class="meta">
+              <span class="price">$7.90</span>
+              <button class="btn add" data-sku="2l" data-name="Tangelo Burst 2L Family Size" data-price="7.9">Add</button>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -222,6 +272,100 @@
     </div>
     <div class="drawer__scrim" id="scrim" aria-hidden="true"></div>
   </aside>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkout" class="modal" aria-hidden="true" role="dialog" aria-labelledby="checkoutTitle">
+    <div class="modal__scrim" id="checkoutScrim"></div>
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <h3 id="checkoutTitle">Checkout</h3>
+        <button class="icon" id="closeCheckout" aria-label="Close checkout">✕</button>
+      </div>
+
+      <div class="modal__body">
+        <div class="checkout__grid">
+          <!-- LEFT -->
+          <form id="checkoutForm" class="form" novalidate>
+            <h4>Customer</h4>
+            <div class="row2">
+              <label>First name
+                <input required name="firstName" autocomplete="given-name" />
+              </label>
+              <label>Last name
+                <input required name="lastName" autocomplete="family-name" />
+              </label>
+            </div>
+            <label>Email
+              <input required type="email" name="email" autocomplete="email" />
+            </label>
+
+            <h4>Delivery</h4>
+            <div class="row2">
+              <label>Address line 1
+                <input required name="addr1" autocomplete="address-line1" />
+              </label>
+              <label>Address line 2 (optional)
+                <input name="addr2" autocomplete="address-line2" />
+              </label>
+            </div>
+            <div class="row3">
+              <label>City/Suburb
+                <input required name="city" autocomplete="address-level2" />
+              </label>
+              <label>Region
+                <input required name="region" autocomplete="address-level1" />
+              </label>
+              <label>Postcode
+                <input required name="postcode" autocomplete="postal-code" />
+              </label>
+            </div>
+
+            <div class="shipOptions">
+              <label><input type="radio" name="ship" value="standard" checked /> Standard (2–4 days) — $5.00</label>
+              <label><input type="radio" name="ship" value="pickup" /> Click & Collect (Papamoa) — Free</label>
+            </div>
+
+            <h4>Payment</h4>
+            <p class="muted">Demo only — no real payment processed.</p>
+            <div class="row2">
+              <label>Name on card
+                <input required name="cardName" />
+              </label>
+              <label>Card number
+                <input required name="cardNum" inputmode="numeric" maxlength="19" placeholder="•••• •••• •••• ••••" />
+              </label>
+            </div>
+            <div class="row3">
+              <label>Expiry (MM/YY)
+                <input required name="exp" placeholder="MM/YY" maxlength="5" />
+              </label>
+              <label>CVC
+                <input required name="cvc" inputmode="numeric" maxlength="4" />
+              </label>
+              <label>Promo code
+                <div class="promoRow">
+                  <input name="promo" placeholder="e.g. BURST10" />
+                  <button type="button" class="btn ghost" id="applyPromo">Apply</button>
+                </div>
+              </label>
+            </div>
+          </form>
+
+          <!-- RIGHT -->
+          <aside class="summary">
+            <h4>Order Summary</h4>
+            <div id="summaryItems" class="summaryItems"></div>
+            <div class="summaryLine"><span>Subtotal</span><span>$<span id="sumSubtotal">0.00</span></span></div>
+            <div class="summaryLine"><span>Shipping</span><span>$<span id="sumShipping">0.00</span></span></div>
+            <div class="summaryLine" id="promoLine" style="display:none;"><span>Promo</span><span>−$<span id="sumPromo">0.00</span></span></div>
+            <div class="summaryTotal"><span>Total</span><span>$<span id="sumTotal">0.00</span></span></div>
+            <button class="btn" id="placeOrder">Place order</button>
+            <p class="muted">By placing your order you agree to our demo Terms.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script defer src="script.js"></script>
 </body>
