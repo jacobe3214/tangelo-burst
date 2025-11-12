@@ -15,18 +15,17 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;600&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;500;600&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@400;500;600&display=swap"></noscript>
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- GSAP (optional) -->
+  <!-- GSAP (small animations) -->
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
 <body>
   <!-- Skip link -->
-  <a class="skip-link" href="#shop">Skip to shop</a>
+  <a class="skip-link" href="#appMain">Skip to content</a>
 
   <!-- Preloader -->
   <div id="preloader" aria-hidden="true">
@@ -34,234 +33,323 @@
     <span>Pouring freshness…</span>
   </div>
 
-  <!-- NAV -->
-  <nav class="nav" aria-label="Main">
-    <div class="container nav__wrap">
-      <a class="brand" href="#top">
-        <img loading="lazy" decoding="async" src="assets/logo.png" alt="Citrus Coast logo" />
-        <span>Citrus Coast Co.</span>
-      </a>
-      <div class="nav__links">
-        <a href="#about">About</a>
-        <a href="#ingredients">Ingredients</a>
-        <a href="#story">Story</a>
-        <a href="#shop" class="strong">Shop</a>
-        <button class="cart" id="cartBtn" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
+  <div class="app" id="top">
+    <!-- NAVBAR -->
+    <nav class="nav" aria-label="Main">
+      <div class="container nav__wrap">
+        <button class="brand nav__tab" data-view="home" aria-label="Go to home">
+          <img src="assets/logo.png" alt="Citrus Coast logo">
+          <div class="brand__text">
+            <span class="brand__name">Citrus Coast Co.</span>
+            <span class="brand__sub">Tangelo Burst</span>
+          </div>
+        </button>
+
+        <div class="nav__right">
+          <div class="nav__links">
+            <button class="nav__tab nav__tab--active" data-view="home">Home</button>
+            <button class="nav__tab" data-view="products">Products</button>
+            <button class="nav__tab" data-view="about">About</button>
+            <button class="nav__tab" data-view="faq">FAQ</button>
+          </div>
+
+          <!-- Products dropdown -->
+          <div class="nav__dropdown">
+            <button class="nav__dropToggle" id="productsToggle" aria-haspopup="true" aria-expanded="false">
+              All sizes ▾
+            </button>
+            <div class="nav__dropdownMenu" id="productsMenu">
+              <button class="nav__dropItem" data-product="300ml">300ml Glass Bottle</button>
+              <button class="nav__dropItem" data-product="600ml">600ml Glass Bottle</button>
+              <button class="nav__dropItem" data-product="6pack">300ml 6-Pack</button>
+              <button class="nav__dropItem" data-product="2l">2L Family Size</button>
+            </div>
+          </div>
+
+          <button class="cart" id="cartBtn" aria-label="Open cart">
+            🛒 <span id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- TRUST STRIP -->
+    <div class="trustbar">
+      <div class="container trustbar__inner">
+        <span>🇳🇿 Made in NZ</span>
+        <span>🌿 100% Natural</span>
+        <span>🚫 No Added Sugar</span>
+        <span>♻️ Recyclable Packaging</span>
       </div>
     </div>
-  </nav>
 
-  <!-- TRUST BAR -->
-  <div class="trustbar">
-    <span>🇳🇿 Made in NZ</span>
-    <span>🌿 100% Natural</span>
-    <span>🚫 No Added Sugar</span>
-    <span>♻️ Recyclable Packaging</span>
+    <!-- MAIN -->
+    <main id="appMain">
+      <!-- HOME VIEW -->
+      <section class="view view--active" data-view="home" aria-label="Home">
+        <header class="hero">
+          <div class="hero__bg"></div>
+          <canvas id="citrusParticles" aria-hidden="true"></canvas>
+
+          <div class="container hero__grid">
+            <div class="hero__copy">
+              <p class="eyebrow">New Zealand Tangelo Juice</p>
+              <h1 class="title">Tangelo <span>Burst</span></h1>
+              <p class="lead">
+                Clean, bright tangelo flavour with no added sugar. Just NZ-grown fruit, filtered water, and vitamin&nbsp;C.
+              </p>
+              <div class="ctaRow">
+                <button class="btn" data-view="products">Shop the range</button>
+                <button class="btn ghost" data-view="about">Our story</button>
+              </div>
+              <ul class="hero__list">
+                <li>100% natural ingredients</li>
+                <li>No added sugar</li>
+                <li>Made and bottled in Aotearoa</li>
+              </ul>
+            </div>
+
+            <div class="hero__visual">
+              <div class="hero__circle"></div>
+              <img class="hero__bottle" src="assets/bottle-300.png" alt="Tangelo Burst bottle">
+              <img class="hero__splash" src="assets/splash.png" alt="" aria-hidden="true">
+            </div>
+          </div>
+        </header>
+
+        <section class="section section--soft">
+          <div class="container cards cards--3">
+            <article class="card">
+              <h3>Real fruit</h3>
+              <p>NZ-grown tangelos and oranges pressed for a crisp, refreshing flavour.</p>
+            </article>
+            <article class="card">
+              <h3>No added sugar</h3>
+              <p>Sweetness only from fruit — no syrups, no hidden sweetness.</p>
+            </article>
+            <article class="card">
+              <h3>Four sizes</h3>
+              <p>Grab-and-go 300ml, 600ml, 6-pack, or 2L family size.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- PRODUCTS VIEW -->
+      <section class="view" data-view="products" aria-label="Products">
+        <section class="section">
+          <div class="container">
+            <header class="section__head">
+              <div>
+                <h2>Our Tangelo Burst range</h2>
+                <p class="viewLead">Pick a size that fits your day, from school lunch to family brunch.</p>
+              </div>
+            </header>
+
+            <!-- Main selector -->
+            <div class="selector">
+              <div class="selector__image">
+                <img id="carouselImg" src="assets/bottle-300.png" alt="Tangelo Burst product">
+              </div>
+              <div class="selector__info">
+                <p class="selector__eyebrow">Featured size</p>
+                <h3 id="carouselName">Tangelo Burst 300ml Glass Bottle</h3>
+                <p class="selector__desc">
+                  Single-serve glass bottle. Ideal for lunchboxes, after sport, or a quick burst of citrus.
+                </p>
+                <div class="selector__meta">
+                  <span class="selector__price">$<span id="carouselPrice">3.50</span></span>
+                  <button id="carouselAdd" class="btn">Add to cart</button>
+                </div>
+
+                <div class="selector__sizes" role="tablist" aria-label="Sizes">
+                  <button class="sizeChip sizeChip--active"
+                          role="tab" aria-selected="true"
+                          data-sku="300ml" data-img="assets/bottle-300.png"
+                          data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">
+                    300ml
+                  </button>
+                  <button class="sizeChip"
+                          role="tab" aria-selected="false"
+                          data-sku="600ml" data-img="assets/bottle-600.png"
+                          data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">
+                    600ml
+                  </button>
+                  <button class="sizeChip"
+                          role="tab" aria-selected="false"
+                          data-sku="6pack" data-img="assets/pack-6.png"
+                          data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">
+                    6-pack
+                  </button>
+                  <button class="sizeChip"
+                          role="tab" aria-selected="false"
+                          data-sku="2l" data-img="assets/bottle-2l.png"
+                          data-name="Tangelo Burst 2L Family Size" data-price="7.9">
+                    2L
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Horizontal product rail -->
+            <div class="shop">
+              <div class="shop__head">
+                <h3>All products</h3>
+                <div class="railControls">
+                  <button class="railBtn" id="railLeft" aria-label="Scroll products left">‹</button>
+                  <button class="railBtn" id="railRight" aria-label="Scroll products right">›</button>
+                </div>
+              </div>
+
+              <div class="shopRail" id="productRail">
+                <article class="product" data-product-card="300ml">
+                  <img src="assets/bottle-300.png" alt="Tangelo Burst 300ml Glass Bottle">
+                  <div class="product__body">
+                    <h4>300ml Glass Bottle</h4>
+                    <p>Compact, easy to pack, and just enough for a quick refresh.</p>
+                  </div>
+                  <div class="product__foot">
+                    <span class="price">$3.50</span>
+                    <button class="btn add" data-sku="300ml" data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">Add</button>
+                  </div>
+                </article>
+
+                <article class="product" data-product-card="600ml">
+                  <img src="assets/bottle-600.png" alt="Tangelo Burst 600ml Glass Bottle">
+                  <div class="product__body">
+                    <h4>600ml Glass Bottle</h4>
+                    <p>More to sip. Great for longer days out or bigger thirsts.</p>
+                  </div>
+                  <div class="product__foot">
+                    <span class="price">$5.50</span>
+                    <button class="btn add" data-sku="600ml" data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">Add</button>
+                  </div>
+                </article>
+
+                <article class="product" data-product-card="6pack">
+                  <img src="assets/pack-6.png" alt="Tangelo Burst 300ml 6-Pack">
+                  <div class="product__body">
+                    <h4>300ml 6-Pack</h4>
+                    <p>Ideal for BBQs, teams, or sharing with friends and whānau.</p>
+                  </div>
+                  <div class="product__foot">
+                    <span class="price">$19.50</span>
+                    <button class="btn add" data-sku="6pack" data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">Add</button>
+                  </div>
+                </article>
+
+                <article class="product" data-product-card="2l">
+                  <img src="assets/bottle-2l.png" alt="Tangelo Burst 2L Family Size">
+                  <div class="product__body">
+                    <h4>2L Family Size</h4>
+                    <p>Perfect for breakfasts, brunches, and weekend gatherings.</p>
+                  </div>
+                  <div class="product__foot">
+                    <span class="price">$7.90</span>
+                    <button class="btn add" data-sku="2l" data-name="Tangelo Burst 2L Family Size" data-price="7.9">Add</button>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ABOUT VIEW -->
+      <section class="view" data-view="about" aria-label="About Tangelo Burst">
+        <section class="section">
+          <div class="container about__grid">
+            <div class="about__copy">
+              <h2>How we make Tangelo Burst</h2>
+              <p>
+                Tangelo Burst begins in NZ orchards, with fruit picked at peak ripeness. We press the juice, balance it with a touch of orange, and add vitamin C to help keep everything bright and fresh.
+              </p>
+              <ul class="ticks">
+                <li>Fruit-first recipes</li>
+                <li>Short ingredient list</li>
+                <li>Made in Aotearoa</li>
+              </ul>
+            </div>
+            <div class="about__card">
+              <img class="about__image" src="assets/orchard.jpg" alt="NZ citrus orchard">
+              <p class="note">From local orchards to your glass, with as few steps in between as possible.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--soft">
+          <div class="container cards cards--3">
+            <article class="card">
+              <h3>Ingredients</h3>
+              <p>Tangelo juice, orange juice, filtered water, vitamin C.</p>
+            </article>
+            <article class="card">
+              <h3>No added sugar</h3>
+              <p>We rely on the natural sweetness of fruit, not syrups.</p>
+            </article>
+            <article class="card">
+              <h3>Packaging</h3>
+              <p>Recyclable glass bottles and cardboard for the 6-pack.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container story__wrap">
+            <div class="story__copy">
+              <h2>Papamoa in every sip</h2>
+              <p>
+                Tangelo Burst is designed to taste like summer at the beach — sharp, cold, and bright. It’s the drink you grab after a swim, a game, or a long hot afternoon.
+              </p>
+            </div>
+            <div class="story__image" role="img" aria-label="Papamoa beach lifestyle image"></div>
+          </div>
+        </section>
+      </section>
+
+      <!-- FAQ VIEW -->
+      <section class="view" data-view="faq" aria-label="Frequently Asked Questions">
+        <section class="section">
+          <div class="container">
+            <h2>FAQs</h2>
+            <p class="viewLead">Quick answers about Tangelo Burst.</p>
+
+            <div class="faq">
+              <details>
+                <summary>Does Tangelo Burst contain added sugar?</summary>
+                <p>No. Tangelo Burst is naturally sweet from fruit only — no added sugar or artificial sweeteners.</p>
+              </details>
+              <details>
+                <summary>Is it still or sparkling?</summary>
+                <p>This version is still. A sparkling Tangelo Burst is a future idea.</p>
+              </details>
+              <details>
+                <summary>How should I store it?</summary>
+                <p>Keep bottles chilled. Once opened, drink within 3 days for best flavour.</p>
+              </details>
+              <details>
+                <summary>Is the packaging recyclable?</summary>
+                <p>Yes — glass bottles and cardboard carriers are recyclable where facilities exist.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container foot">
+        <p>© <span id="yr"></span> Citrus Coast Co. • Tangelo Burst • Made in New Zealand 🇳🇿</p>
+      </div>
+    </footer>
   </div>
-
-  <!-- HERO -->
-  <header id="top" class="hero">
-    <div class="hero__bg"></div>
-    <canvas id="citrusParticles" aria-hidden="true"></canvas>
-
-    <div class="container hero__grid">
-      <div class="hero__copy">
-        <h1 class="title">Tangelo <span>Burst</span></h1>
-        <p class="lead">A bright, juicy hit of real NZ tangelo. 100% natural. No added sugar.</p>
-        <div class="cta">
-          <a class="btn" href="#shop">Buy Now</a>
-          <a class="btn ghost" href="#about">Learn more</a>
-        </div>
-        <div class="hero__badges">
-          <div class="badge">
-            <div class="badge__top">100% NATURAL</div>
-            <div class="badge__mid">NO ADDED SUGAR</div>
-            <div class="badge__bot">MADE IN NZ</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero__visual">
-        <img class="bottle" loading="lazy" decoding="async" src="assets/bottle-300.png" alt="Tangelo Burst bottle">
-        <img class="splash" loading="lazy" decoding="async" src="assets/splash.png" alt="" aria-hidden="true">
-      </div>
-    </div>
-
-    <div class="marquee" aria-hidden="true">
-      <div class="track">
-        🍊 Tangelo Burst • 🌿 100% Natural • 🇳🇿 Made in NZ • 0g Added Sugar •
-        🍊 Tangelo Burst • 🌿 100% Natural • 🇳🇿 Made in NZ • 0g Added Sugar •
-      </div>
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container about__grid">
-      <div class="about__copy">
-        <h2>Why Tangelo Burst?</h2>
-        <p>Pressed from NZ-grown tangelos, blended for balance, and bottled for clarity. Smooth, vibrant, and naturally sweet — with zero added sugar.</p>
-        <ul class="ticks">
-          <li>Small-batch pressed in the Bay of Plenty</li>
-          <li>Recyclable glass & responsible packaging</li>
-          <li>Short supply chain — maximum freshness</li>
-        </ul>
-      </div>
-      <div class="about__card">
-        <img class="about__image" loading="lazy" decoding="async" src="assets/orchard.jpg" alt="NZ citrus orchard">
-        <p class="note">Local growers, local jobs, local flavour.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- INGREDIENTS -->
-  <section id="ingredients" class="section alt">
-    <div class="container">
-      <h2>Nothing But Real Fruit</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Tangelo Juice</h3>
-          <p>Bold citrus from NZ tangelos delivers a lively, refreshing profile.</p>
-        </article>
-        <article class="card">
-          <h3>Orange Juice</h3>
-          <p>A touch of orange rounds the acidity for a smooth finish.</p>
-        </article>
-        <article class="card">
-          <h3>Vitamin C</h3>
-          <p>Natural antioxidant (ascorbic acid) to lock in freshness.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- STORY -->
-  <section id="story" class="section story">
-    <div class="container story__wrap">
-      <div class="story__copy">
-        <h2>Proudly Made in Aotearoa</h2>
-        <p>From orchard to ocean — a Papamoa summer in every sip: sun-lit, crisp, and full of energy.</p>
-        <ul class="ticks">
-          <li>Community-minded production</li>
-          <li>Traceable ingredients</li>
-          <li>Crafted in New Zealand</li>
-        </ul>
-      </div>
-      <div class="story__image" role="img" aria-label="Papamoa beach lifestyle image"></div>
-    </div>
-  </section>
-
-  <!-- SHOP -->
-  <section id="shop" class="section">
-    <div class="container">
-      <h2>Choose Your Tangelo Burst</h2>
-
-      <!-- Main selector carousel (big image + buttons) -->
-      <div class="carousel" aria-label="Product selector">
-        <div class="carousel__main">
-          <img id="carouselImg" loading="lazy" decoding="async" src="assets/bottle-300.png" alt="Tangelo product">
-        </div>
-        <div class="carousel__thumbs" role="tablist" aria-label="Sizes">
-          <button class="thumb active" role="tab" aria-selected="true"
-                  data-sku="300ml" data-img="assets/bottle-300.png"
-                  data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">300 ml</button>
-          <button class="thumb" role="tab" aria-selected="false"
-                  data-sku="600ml" data-img="assets/bottle-600.png"
-                  data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">600 ml</button>
-          <button class="thumb" role="tab" aria-selected="false"
-                  data-sku="6pack" data-img="assets/pack-6.png"
-                  data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">6-pack</button>
-          <button class="thumb" role="tab" aria-selected="false"
-                  data-sku="2l" data-img="assets/bottle-2l.png"
-                  data-name="Tangelo Burst 2L Family Size" data-price="7.9">2 L</button>
-        </div>
-        <div class="carousel__cta">
-          <div>
-            <h3 id="carouselName">Tangelo Burst 300ml Glass Bottle</h3>
-            <p class="desc">Single-serve freshness in recyclable glass.</p>
-          </div>
-          <div class="cta__right">
-            <span class="price">$<span id="carouselPrice">3.50</span></span>
-            <button id="carouselAdd" class="btn">Add to cart</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Horizontal product rail -->
-      <div class="shop">
-        <div class="railControls">
-          <button class="railBtn" id="railLeft" aria-label="Scroll products left">‹</button>
-          <span class="railLabel">All Tangelo Burst sizes</span>
-          <button class="railBtn" id="railRight" aria-label="Scroll products right">›</button>
-        </div>
-
-        <div class="shopRail" id="productRail">
-          <article class="product" id="p300">
-            <img loading="lazy" decoding="async" src="assets/bottle-300.png" alt="Tangelo Burst 300ml Glass Bottle">
-            <h3>300ml Glass Bottle</h3>
-            <p class="desc">Bright single-serve.</p>
-            <div class="meta">
-              <span class="price">$3.50</span>
-              <button class="btn add" data-sku="300ml" data-name="Tangelo Burst 300ml Glass Bottle" data-price="3.5">Add</button>
-            </div>
-          </article>
-
-          <article class="product" id="p600">
-            <img loading="lazy" decoding="async" src="assets/bottle-600.png" alt="Tangelo Burst 600ml Glass Bottle">
-            <h3>600ml Glass Bottle</h3>
-            <p class="desc">More to sip — same burst.</p>
-            <div class="meta">
-              <span class="price">$5.50</span>
-              <button class="btn add" data-sku="600ml" data-name="Tangelo Burst 600ml Glass Bottle" data-price="5.5">Add</button>
-            </div>
-          </article>
-
-          <article class="product" id="p6">
-            <img loading="lazy" decoding="async" src="assets/pack-6.png" alt="Tangelo Burst 300ml 6-Pack">
-            <h3>300ml 6-Pack</h3>
-            <p class="desc">Shareable goodness.</p>
-            <div class="meta">
-              <span class="price">$19.50</span>
-              <button class="btn add" data-sku="6pack" data-name="Tangelo Burst 300ml 6-Pack" data-price="19.5">Add</button>
-            </div>
-          </article>
-
-          <article class="product" id="p2l">
-            <img loading="lazy" decoding="async" src="assets/bottle-2l.png" alt="Tangelo Burst 2L Family Size">
-            <h3>2L Family Size</h3>
-            <p class="desc">BBQs, brunches, weekends.</p>
-            <div class="meta">
-              <span class="price">$7.90</span>
-              <button class="btn add" data-sku="2l" data-name="Tangelo Burst 2L Family Size" data-price="7.9">Add</button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="section alt">
-    <div class="container">
-      <h2>FAQs</h2>
-      <details><summary>Any added sugar?</summary><p>No — naturally sweet from fruit only.</p></details>
-      <details><summary>Is it sparkling?</summary><p>This is the still version. A sparkling “Tangelo Fizz” is in development.</p></details>
-      <details><summary>How do I store it?</summary><p>Keep chilled. Best within 3 days of opening.</p></details>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container foot">
-      <p>© <span id="yr"></span> Citrus Coast Co. • Made in New Zealand 🇳🇿</p>
-    </div>
-  </footer>
 
   <!-- CART DRAWER -->
   <aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
     <div class="drawer__panel">
       <div class="drawer__head">
-        <h3 id="cartTitle">Your Order</h3>
+        <h3 id="cartTitle">Your cart</h3>
         <button class="icon" id="closeDrawer" aria-label="Close cart">✕</button>
       </div>
       <div id="cartItems" class="drawer__body"></div>
@@ -278,15 +366,15 @@
     <div class="modal__scrim" id="checkoutScrim"></div>
     <div class="modal__panel" role="document">
       <div class="modal__head">
-        <h3 id="checkoutTitle">Checkout</h3>
+        <h3 id="checkoutTitle">Checkout (demo)</h3>
         <button class="icon" id="closeCheckout" aria-label="Close checkout">✕</button>
       </div>
 
       <div class="modal__body">
         <div class="checkout__grid">
-          <!-- LEFT -->
+          <!-- LEFT: Form -->
           <form id="checkoutForm" class="form" novalidate>
-            <h4>Customer</h4>
+            <h4>Customer details</h4>
             <div class="row2">
               <label>First name
                 <input required name="firstName" autocomplete="given-name" />
@@ -351,16 +439,16 @@
             </div>
           </form>
 
-          <!-- RIGHT -->
+          <!-- RIGHT: Summary -->
           <aside class="summary">
-            <h4>Order Summary</h4>
+            <h4>Order summary</h4>
             <div id="summaryItems" class="summaryItems"></div>
             <div class="summaryLine"><span>Subtotal</span><span>$<span id="sumSubtotal">0.00</span></span></div>
             <div class="summaryLine"><span>Shipping</span><span>$<span id="sumShipping">0.00</span></span></div>
             <div class="summaryLine" id="promoLine" style="display:none;"><span>Promo</span><span>−$<span id="sumPromo">0.00</span></span></div>
             <div class="summaryTotal"><span>Total</span><span>$<span id="sumTotal">0.00</span></span></div>
             <button class="btn" id="placeOrder">Place order</button>
-            <p class="muted">By placing your order you agree to our demo Terms.</p>
+            <p class="muted">This is a school project demo. No payment is actually taken.</p>
           </aside>
         </div>
       </div>
